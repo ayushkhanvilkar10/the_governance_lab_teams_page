@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchTeamMembers } from '../services/api';
 import { TeamMember } from '../types';
+import { teamMembersArray } from '../data/teamMembersArray';
 
 const TeamPage: React.FC = () => {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
@@ -25,18 +26,22 @@ const TeamPage: React.FC = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
+  // Filter and sort team members based on teamMembersArray
+  const sortedTeamMembers = teamMembersArray.map(name => {
+    const member = teamMembers.find(member => member.name === name);
+    return member ? { name: member.name, bio_short: member.bio_short } : null;
+  }).filter(member => member !== null);
+
   return (
     <div>
       <header>
         <h1>Our Team</h1>
       </header>
       <main>
-        {teamMembers.map((member, index) => (
-          <div key={index} className="team-member-card">
-            <img src={member.picture?.url} alt={member.name} />
+        {sortedTeamMembers.map((member, index) => (
+          <div key={index}>
             <h2>{member.name}</h2>
-            <h3>{member.role}</h3>
-            <p>{member.bio}</p>
+            <p>{member.bio_short}</p>
           </div>
         ))}
       </main>

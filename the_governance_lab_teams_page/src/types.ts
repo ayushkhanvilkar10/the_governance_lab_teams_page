@@ -50,6 +50,6 @@ export interface Project {
 
 export interface TeamMember {
     name: string;
-    projects?: Project[];
+    bio_short?: string;  // Optional property for short biography
     [key: string]: any;
 }
