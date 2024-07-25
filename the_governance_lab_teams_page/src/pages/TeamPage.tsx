@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchTeamMembers } from '../services/api';
 import { TeamMember } from '../types';
 import { teamMembersArray } from '../data/teamMembersArray';
+import './TeamPage.css';  // Import the CSS file for styling
 
 const TeamPage: React.FC = () => {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
@@ -29,7 +30,12 @@ const TeamPage: React.FC = () => {
   // Filter and sort team members based on teamMembersArray
   const sortedTeamMembers = teamMembersArray.map(name => {
     const member = teamMembers.find(member => member.name === name);
-    return member ? { name: member.name, bio_short: member.bio_short } : null;
+    return member ? {
+      name: member.name,
+      title: member.title,
+      bio_short: member.bio_short,
+      picture_blog2020: member.picture_blog2020
+    } : null;
   }).filter(member => member !== null);
 
   return (
@@ -39,9 +45,13 @@ const TeamPage: React.FC = () => {
       </header>
       <main>
         {sortedTeamMembers.map((member, index) => (
-          <div key={index}>
-            <h2>{member.name}</h2>
-            <p>{member.bio_short}</p>
+          <div key={index} className="team-member">
+            <img src={member.picture_blog2020} alt={member.name} className="team-member-picture" />
+            <div className="team-member-info">
+              <h2>{member.name}</h2>
+              {member.title && <h3>{member.title}</h3>}
+              {member.bio_short && <p>{member.bio_short}</p>}
+            </div>
           </div>
         ))}
       </main>
