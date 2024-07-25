@@ -48,11 +48,15 @@ export interface Project {
     projects_id: ProjectID;
 }
 
-// src/types.ts
+export interface Picture {
+    id: string;
+}
+
 export interface TeamMember {
     name: string;
     title?: string;  // Optional property for the title
     bio_short?: string;  // Optional property for short biography
     picture_blog2020?: string;  // Optional property for the picture URL
+    picture?: Picture;  // Optional property for the picture object
     [key: string]: any;
 }

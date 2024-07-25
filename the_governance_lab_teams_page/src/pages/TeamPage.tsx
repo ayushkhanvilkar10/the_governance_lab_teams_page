@@ -34,7 +34,8 @@ const TeamPage: React.FC = () => {
       name: member.name,
       title: member.title,
       bio_short: member.bio_short,
-      picture_blog2020: member.picture_blog2020
+      picture_blog2020: member.picture_blog2020,
+      picture: member.picture // Assuming picture is the object containing id
     } : null;
   }).filter(member => member !== null);
 
@@ -44,16 +45,20 @@ const TeamPage: React.FC = () => {
         <h1>Our Team</h1>
       </header>
       <main>
-        {sortedTeamMembers.map((member, index) => (
-          <div key={index} className="team-member">
-            <img src={member.picture_blog2020} alt={member.name} className="team-member-picture" />
-            <div className="team-member-info">
-              <h2>{member.name}</h2>
-              {member.title && <h3>{member.title}</h3>}
-              {member.bio_short && <p>{member.bio_short}</p>}
+        {sortedTeamMembers.map((member, index) => {
+          const pictureUrl = member.picture_blog2020 || (member.picture ? `https://content.thegovlab.com/assets/${member.picture.id}` : '');
+
+          return (
+            <div key={index} className="team-member">
+              {pictureUrl && <img src={pictureUrl} alt={member.name} className="team-member-picture" />}
+              <div className="team-member-info">
+                <h2>{member.name}</h2>
+                {member.title && <h3>{member.title}</h3>}
+                {member.bio_short && <p>{member.bio_short}</p>}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </main>
       <footer>
         <p>© 2024 Governance Lab</p>
