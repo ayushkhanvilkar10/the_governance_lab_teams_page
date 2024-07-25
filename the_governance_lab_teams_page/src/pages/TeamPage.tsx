@@ -27,9 +27,9 @@ const TeamPage: React.FC = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
-  // Filter and sort team members based on teamMembersArray
+  // Filter and sort team members based on teamMembersArray and ensure bio_short is available
   const sortedTeamMembers = teamMembersArray.map(name => {
-    const member = teamMembers.find(member => member.name === name);
+    const member = teamMembers.find(member => member.name === name && member.bio_short);
     return member ? {
       name: member.name,
       title: member.title,
