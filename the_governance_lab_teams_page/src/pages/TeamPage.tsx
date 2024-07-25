@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchTeamMembers } from '../services/api';
 import { TeamMember } from '../types';
 import { teamMembersArray } from '../data/teamMembersArray';
+import parse from 'html-react-parser';
 import './TeamPage.css';  // Import the CSS file for styling
 
 const TeamPage: React.FC = () => {
@@ -54,7 +55,7 @@ const TeamPage: React.FC = () => {
               <div className="team-member-info">
                 <h2>{member.name}</h2>
                 {member.title && <h3>{member.title}</h3>}
-                {member.bio_short && <p>{member.bio_short}</p>}
+                {member.bio_short && <div>{parse(member.bio_short)}</div>}
               </div>
             </div>
           );
