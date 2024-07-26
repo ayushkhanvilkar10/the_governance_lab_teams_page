@@ -1,25 +1,26 @@
-.team-member {
-    display: flex;
-    align-items: flex-start; /* Align items to the start of the container */
-    margin-bottom: 20px; /* Space between team members */
-    border-bottom: 1px solid #ddd; /* Optional: border for separation */
-    padding: 10px 0; /* Padding for spacing */
-  }
-  
-  .team-member-picture {
-    width: 100px; /* Adjust the size as needed */
-    height: 100px;
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    margin-right: 20px; /* Space between image and text */
-    border-radius: 50%; /* Optional: makes the image round */
-  }
-  
-  .team-member-info {
-    flex: 1; /* Allows this section to take the remaining space */
-  }
-  
-  header, footer {
-    text-align: center; /* Center text in header and footer */
-    padding: 10px 0; /* Padding for spacing */
-  }
-  
+.team-member-picture {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: 10px;
+}
+
+header, footer {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.projects-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.projects-list li {
+  margin-bottom: 5px;
+}
+
+.team-member-body {
+  text-align: left;
+}

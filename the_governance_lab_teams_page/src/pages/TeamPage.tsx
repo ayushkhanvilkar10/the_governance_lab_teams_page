@@ -3,6 +3,7 @@ import { fetchTeamMembers } from '../services/api';
 import { TeamMember } from '../types';
 import { teamMembersArray } from '../data/teamMembersArray';
 import parse from 'html-react-parser';
+import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import './TeamPage.css';
 
 const TeamPage: React.FC = () => {
@@ -53,15 +54,12 @@ const TeamPage: React.FC = () => {
       bio: member.bio,
       picture_blog2020: member.picture_blog2020,
       picture: member.picture,
-      projects: member.projects // Add projects attribute here
+      projects: member.projects
     } : null;
   }).filter(member => member !== null);
 
   return (
-    <div>
-      <header>
-        <h1>Our Team</h1>
-      </header>
+    <Container>
       <main>
         {sortedTeamMembers.map((member, index) => {
           const pictureUrl = member.picture_blog2020 || (member.picture ? `https://content.thegovlab.com/assets/${member.picture.id}` : '');
@@ -69,43 +67,54 @@ const TeamPage: React.FC = () => {
           const areProjectsVisible = projectsVisible[member.name];
 
           return (
-            <div key={index} className="team-member">
-              {pictureUrl && <img src={pictureUrl} alt={member.name} className="team-member-picture" />}
-              <div className="team-member-info">
-                <h2>{member.name}</h2>
-                {member.title && <h3>{member.title}</h3>}
-                {member.bio_short && !isExpanded && <div>{parse(member.bio_short)}</div>}
-                {member.bio && isExpanded && <div>{parse(member.bio)}</div>}
-                {member.bio !== null && member.bio !== "NULL" && (
-                  <button onClick={() => handleToggle(member.name)}>
-                    {isExpanded ? 'Read Less' : 'Read More'}
-                  </button>
-                )}
-                {member.projects && member.projects.length > 0 && (
-                  <button onClick={() => handleProjectsToggle(member.name)}>
-                    {areProjectsVisible ? 'Hide Projects' : 'Show Projects'}
-                  </button>
-                )}
-                {areProjectsVisible && member.projects && (
-                  <ul className="projects-list">
-                    {member.projects.map((project, projectIndex) => (
-                      <li key={projectIndex}>
-                        <a href={project.projects_id.project_link} target="_blank" rel="noopener noreferrer">
-                          {project.projects_id.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </div>
+            <Card key={index} className="mb-3">
+              <Row noGutters>
+                <Col xs={12} md={4}>
+                  {pictureUrl && (
+                    <div
+                      className="team-member-picture"
+                      style={{ backgroundImage: `url(${pictureUrl})` }}
+                    ></div>
+                  )}
+                </Col>
+                <Col xs={12} md={8}>
+                  <Card.Body className="team-member-body">
+                    <Card.Title>{member.name}</Card.Title>
+                    {member.title && <Card.Subtitle className="mb-2 text-muted">{member.title}</Card.Subtitle>}
+                    {member.bio_short && !isExpanded && <Card.Text>{parse(member.bio_short)}</Card.Text>}
+                    {member.bio && isExpanded && <Card.Text>{parse(member.bio)}</Card.Text>}
+                    {member.bio !== null && member.bio !== "NULL" && (
+                      <Button variant="link" onClick={() => handleToggle(member.name)}>
+                        {isExpanded ? 'Read Less' : 'Read More'}
+                      </Button>
+                    )}
+                    {member.projects && member.projects.length > 0 && (
+                      <Button variant="link" onClick={() => handleProjectsToggle(member.name)}>
+                        {areProjectsVisible ? 'Hide Projects' : 'Show Projects'}
+                      </Button>
+                    )}
+                    {areProjectsVisible && member.projects && (
+                      <ul className="projects-list">
+                        {member.projects.map((project, projectIndex) => (
+                          <li key={projectIndex}>
+                            <a href={project.projects_id.project_link} target="_blank" rel="noopener noreferrer">
+                              {project.projects_id.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </Card.Body>
+                </Col>
+              </Row>
+            </Card>
           );
         })}
       </main>
       <footer>
         <p>© 2024 Governance Lab</p>
       </footer>
-    </div>
+    </Container>
   );
 };
 
