@@ -1,0 +1,10 @@
+.custom-navbar {
+  height: 80px;
+  background-color: #523080;
+  width: 100%;
+}
+
+.custom-navbar .navbar-brand {
+  color: white;
+  font-size: 24px;
+}

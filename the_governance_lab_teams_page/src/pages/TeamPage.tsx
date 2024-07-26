@@ -59,7 +59,8 @@ const TeamPage: React.FC = () => {
   }).filter(member => member !== null);
 
   return (
-    <Container>
+    <>
+    <Container className='team-member-container'>
       <main>
         {sortedTeamMembers.map((member, index) => {
           const pictureUrl = member.picture_blog2020 || (member.picture ? `https://content.thegovlab.com/assets/${member.picture.id}` : '');
@@ -80,7 +81,9 @@ const TeamPage: React.FC = () => {
                 <Col xs={12} md={9}>
                   <Card.Body className="team-member-body">
                     <Card.Title className="card-title-custom">{member.name}</Card.Title>
-                    {member.title && <Card.Subtitle className="mb-2 text-muted card-subtitle-custom">{member.title}</Card.Subtitle>}
+                    {member.title && <Card.Subtitle className="mb-2 text-muted card-subtitle-custom">
+                    {member.title}
+                    </Card.Subtitle>}
                     {member.bio_short && !isExpanded && <Card.Text className='card-text-custom'>{parse(member.bio_short)}</Card.Text>}
                     {member.bio && isExpanded && <Card.Text className='card-text-custom'>{parse(member.bio)}</Card.Text>}
                     {member.bio !== null && member.bio !== "NULL" && (
@@ -115,6 +118,7 @@ const TeamPage: React.FC = () => {
         <p>© 2024 Governance Lab</p>
       </footer>
     </Container>
+    </>
   );
 };
 
