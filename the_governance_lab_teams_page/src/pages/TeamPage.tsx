@@ -60,7 +60,7 @@ const TeamPage: React.FC = () => {
 
   return (
     <>
-    <Container className='team-member-container'>
+    <Container className='team-member-container mx-auto'>
       <main>
         {sortedTeamMembers.map((member, index) => {
           const pictureUrl = member.picture_blog2020 || (member.picture ? `https://content.thegovlab.com/assets/${member.picture.id}` : '');
@@ -68,6 +68,7 @@ const TeamPage: React.FC = () => {
           // const areProjectsVisible = projectsVisible[member.name];
 
           return (
+            <>
             <Card key={index} className="mb-3 custom-card">
               <Row noGutters>
                 <Col xs={12} md={3}>
@@ -87,8 +88,8 @@ const TeamPage: React.FC = () => {
                     {member.bio_short && !isExpanded && <Card.Text className='card-text-custom'>{parse(member.bio_short)}</Card.Text>}
                     {member.bio && isExpanded && <Card.Text className='card-text-custom'>{parse(member.bio)}</Card.Text>}
                     {member.bio !== null && member.bio !== "NULL" && (
-                      <Button variant="link" onClick={() => handleToggle(member.name)}>
-                        {isExpanded ? 'Read Less' : 'Read More'}
+                      <Button className='read-more' variant="link" onClick={() => handleToggle(member.name)}>
+                        {isExpanded ? 'LESS' : 'MORE'}
                       </Button>
                     )}
                     {/* {member.projects && member.projects.length > 0 && (
@@ -110,7 +111,9 @@ const TeamPage: React.FC = () => {
                   </Card.Body>
                 </Col>
               </Row>
-            </Card>
+            </Card>            
+            <hr className="full-width-divider"></hr>            
+          </>
           );
         })}
       </main>
