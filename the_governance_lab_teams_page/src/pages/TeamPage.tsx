@@ -67,7 +67,7 @@ const TeamPage: React.FC = () => {
           const areProjectsVisible = projectsVisible[member.name];
 
           return (
-            <Card key={index} className="mb-3">
+            <Card key={index} className="mb-3 custom-card">
               <Row noGutters>
                 <Col xs={12} md={4}>
                   {pictureUrl && (
