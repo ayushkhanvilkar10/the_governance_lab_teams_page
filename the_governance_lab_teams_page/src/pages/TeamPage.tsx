@@ -10,6 +10,7 @@ const TeamPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [expandedMembers, setExpandedMembers] = useState<{ [key: string]: boolean }>({});
+  const [projectsVisible, setProjectsVisible] = useState<{ [key: string]: boolean }>({});
 
   useEffect(() => {
     const getTeamMembers = async () => {
@@ -36,6 +37,13 @@ const TeamPage: React.FC = () => {
     }));
   };
 
+  const handleProjectsToggle = (name: string) => {
+    setProjectsVisible(prev => ({
+      ...prev,
+      [name]: !prev[name]
+    }));
+  };
+
   const sortedTeamMembers = teamMembersArray.map(name => {
     const member = teamMembers.find(member => member.name === name && member.bio_short);
     return member ? {
@@ -44,7 +52,8 @@ const TeamPage: React.FC = () => {
       bio_short: member.bio_short,
       bio: member.bio,
       picture_blog2020: member.picture_blog2020,
-      picture: member.picture
+      picture: member.picture,
+      projects: member.projects // Add projects attribute here
     } : null;
   }).filter(member => member !== null);
 
@@ -57,6 +66,7 @@ const TeamPage: React.FC = () => {
         {sortedTeamMembers.map((member, index) => {
           const pictureUrl = member.picture_blog2020 || (member.picture ? `https://content.thegovlab.com/assets/${member.picture.id}` : '');
           const isExpanded = expandedMembers[member.name];
+          const areProjectsVisible = projectsVisible[member.name];
 
           return (
             <div key={index} className="team-member">
@@ -70,6 +80,22 @@ const TeamPage: React.FC = () => {
                   <button onClick={() => handleToggle(member.name)}>
                     {isExpanded ? 'Read Less' : 'Read More'}
                   </button>
+                )}
+                {member.projects && member.projects.length > 0 && (
+                  <button onClick={() => handleProjectsToggle(member.name)}>
+                    {areProjectsVisible ? 'Hide Projects' : 'Show Projects'}
+                  </button>
+                )}
+                {areProjectsVisible && member.projects && (
+                  <ul className="projects-list">
+                    {member.projects.map((project, projectIndex) => (
+                      <li key={projectIndex}>
+                        <a href={project.projects_id.project_link} target="_blank" rel="noopener noreferrer">
+                          {project.projects_id.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </div>
             </div>

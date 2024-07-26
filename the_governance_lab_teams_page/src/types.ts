@@ -1,3 +1,6 @@
+
+
+
 export interface Location {
     loc: string;
 }
@@ -59,5 +62,6 @@ export interface TeamMember {
     bio?: string;
     picture_blog2020?: string;
     picture?: Picture;
+    projects?: Project[];
     [key: string]: any;
 }
