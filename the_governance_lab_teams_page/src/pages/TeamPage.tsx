@@ -69,7 +69,7 @@ const TeamPage: React.FC = () => {
           return (
             <Card key={index} className="mb-3 custom-card">
               <Row noGutters>
-                <Col xs={12} md={4}>
+                <Col xs={12} md={3}>
                   {pictureUrl && (
                     <div
                       className="team-member-picture"
@@ -77,12 +77,12 @@ const TeamPage: React.FC = () => {
                     ></div>
                   )}
                 </Col>
-                <Col xs={12} md={8}>
+                <Col xs={12} md={9}>
                   <Card.Body className="team-member-body">
-                    <Card.Title>{member.name}</Card.Title>
-                    {member.title && <Card.Subtitle className="mb-2 text-muted">{member.title}</Card.Subtitle>}
-                    {member.bio_short && !isExpanded && <Card.Text>{parse(member.bio_short)}</Card.Text>}
-                    {member.bio && isExpanded && <Card.Text>{parse(member.bio)}</Card.Text>}
+                    <Card.Title className="card-title-custom">{member.name}</Card.Title>
+                    {member.title && <Card.Subtitle className="mb-2 text-muted card-subtitle-custom">{member.title}</Card.Subtitle>}
+                    {member.bio_short && !isExpanded && <Card.Text className='card-text-custom'>{parse(member.bio_short)}</Card.Text>}
+                    {member.bio && isExpanded && <Card.Text className='card-text-custom'>{parse(member.bio)}</Card.Text>}
                     {member.bio !== null && member.bio !== "NULL" && (
                       <Button variant="link" onClick={() => handleToggle(member.name)}>
                         {isExpanded ? 'Read Less' : 'Read More'}

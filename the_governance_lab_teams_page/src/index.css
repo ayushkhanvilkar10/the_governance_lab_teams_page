@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'proxima-nova';
+  src: url('./assets/fonts/Proxima_Nova_Reg.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'proxima-nova-bold';
+  src: url('./assets/fonts/Proxima_Nova_Bold.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'proxima-nova-light';
+  src: url('./assets/fonts/Proxima_Nova_Light.ttf') format('opentype');
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

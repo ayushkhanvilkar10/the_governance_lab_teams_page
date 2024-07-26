@@ -3,12 +3,12 @@
 }
 
 .team-member-picture {
-  width: 100%;
-  padding-top: 100%;
+  width: 80%;
+  padding-top: 80%;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
-  margin: 10px;
+  margin: 10px auto;
 }
 
 header, footer {
@@ -27,4 +27,19 @@ header, footer {
 
 .team-member-body {
   text-align: left;
+  font-family: 'proxima-nova';
+ }
+
+ .card-title-custom {
+  font-family: 'proxima-nova-bold';
+  text-transform: uppercase;
+ }
+
+ .card-subtitle-custom {
+  font-family: 'proxima-nova';
+  text-transform: uppercase;
+ }
+
+ .card-text-custom {
+  font-size: 1.1rem; /* Adjust this value as needed */
 }
