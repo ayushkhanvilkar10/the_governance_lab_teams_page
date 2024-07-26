@@ -11,7 +11,7 @@ const TeamPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [expandedMembers, setExpandedMembers] = useState<{ [key: string]: boolean }>({});
-  const [projectsVisible, setProjectsVisible] = useState<{ [key: string]: boolean }>({});
+  // const [projectsVisible, setProjectsVisible] = useState<{ [key: string]: boolean }>({});
 
   useEffect(() => {
     const getTeamMembers = async () => {
@@ -38,12 +38,12 @@ const TeamPage: React.FC = () => {
     }));
   };
 
-  const handleProjectsToggle = (name: string) => {
-    setProjectsVisible(prev => ({
-      ...prev,
-      [name]: !prev[name]
-    }));
-  };
+  // const handleProjectsToggle = (name: string) => {
+  //   setProjectsVisible(prev => ({
+  //     ...prev,
+  //     [name]: !prev[name]
+  //   }));
+  // };
 
   const sortedTeamMembers = teamMembersArray.map(name => {
     const member = teamMembers.find(member => member.name === name && member.bio_short);
@@ -65,7 +65,7 @@ const TeamPage: React.FC = () => {
         {sortedTeamMembers.map((member, index) => {
           const pictureUrl = member.picture_blog2020 || (member.picture ? `https://content.thegovlab.com/assets/${member.picture.id}` : '');
           const isExpanded = expandedMembers[member.name];
-          const areProjectsVisible = projectsVisible[member.name];
+          // const areProjectsVisible = projectsVisible[member.name];
 
           return (
             <Card key={index} className="mb-3 custom-card">
@@ -91,12 +91,12 @@ const TeamPage: React.FC = () => {
                         {isExpanded ? 'Read Less' : 'Read More'}
                       </Button>
                     )}
-                    {member.projects && member.projects.length > 0 && (
+                    {/* {member.projects && member.projects.length > 0 && (
                       <Button variant="link" onClick={() => handleProjectsToggle(member.name)}>
                         {areProjectsVisible ? 'Hide Projects' : 'Show Projects'}
                       </Button>
-                    )}
-                    {areProjectsVisible && member.projects && (
+                    )} */}
+                    {/* {areProjectsVisible && member.projects && (
                       <ul className="projects-list">
                         {member.projects.map((project, projectIndex) => (
                           <li key={projectIndex}>
@@ -106,7 +106,7 @@ const TeamPage: React.FC = () => {
                           </li>
                         ))}
                       </ul>
-                    )}
+                    )} */}
                   </Card.Body>
                 </Col>
               </Row>
