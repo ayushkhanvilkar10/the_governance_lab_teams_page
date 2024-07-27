@@ -97,7 +97,6 @@ header, footer {
 .read-more .material-icons {
   font-size: 1.2em;
 } */
-
 .read-more {
   align-self: flex-start;
   text-decoration: none !important;
@@ -108,12 +107,16 @@ header, footer {
   display: flex;
   align-items: center;
   gap: 5px;  /* This adds space between the text and icon */
+  border-radius: 0 !important;  /* Boxy corners */
+  transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out !important; /* Smooth transition */
 }
 
-.read-more:hover, .read-more:focus {
-  color: #573080 !important;
-  text-decoration: none !important;
+.read-more:hover {
+  background-color: #CCCCCC !important;
+  border-radius: 0 !important;  /* Boxy corners */
+  padding-left: 10px !important;
 }
+
 
 .read-more .material-icons {
   font-size: 1.5em;  /* Adjust this value to match the size of your text */
