@@ -9,3 +9,17 @@
   color: white;
   font-size: 24px;
 }
+
+
+/* Styles for smaller screens (mobile and tablets) */
+@media (max-width: 768px) {
+  .custom-navbar {
+    height: auto; /* Allow height to adjust automatically */
+    padding: 10px; /* Add padding for smaller screens */
+    margin-bottom: 20px; /* Adjust margin as needed */
+  }
+
+  .custom-navbar .navbar-brand {
+    font-size: 20px; /* Adjust font size for better visibility */
+  }
+}

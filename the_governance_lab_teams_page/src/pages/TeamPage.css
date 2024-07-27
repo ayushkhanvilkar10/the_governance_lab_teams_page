@@ -39,10 +39,30 @@ header, footer {
 .projects-list {
   list-style-type: none;
   padding-left: 0;
+  margin: 20px 0 0 0; /* Add top margin */
 }
 
 .projects-list li {
-  margin-bottom: 5px;
+  border-bottom: 1px solid #E5E5E5; /* Border color and thickness */
+  padding: 10px; /* Space between the text and the border */
+  background-color: #ffffff; /* Default background color */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.projects-list li:hover {
+  background-color: #F2F2F2; /* Background color on hover */
+}
+
+.projects-list a {
+  font-size: 1.2rem; /* Increase font size slightly */
+  color: #523080; /* Set the text color */
+  text-decoration: none; /* Remove underline */
+  display: block; /* Ensure the link takes up the full width of the li */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.projects-list a:hover {
+  color: #523080; /* Maintain the color on hover */
 }
 
 .team-member-body {
@@ -82,6 +102,12 @@ header, footer {
   color: #523080;  /* Slightly darker shade for hover effect */
 }
 
+.button-container {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-top: 10px; /* Adjust top margin if needed */
+}
+
 .read-more {
   align-self: flex-start;
   text-decoration: none !important;
@@ -108,3 +134,38 @@ header, footer {
   vertical-align: middle;
   padding-left: 12px;
 }
+
+@media (max-width: 768px) {
+  .team-member-picture {
+    width: 55%; /* Adjust width to fit the mobile screen */
+    padding-top: 55%; /* Maintain aspect ratio; adjust if needed */
+    margin: 0 auto; /* Center align the picture horizontally */
+    display: block; /* Ensure it behaves as a block element for centering */  
+  }
+
+  .custom-card {
+    width: 100%; /* Ensure cards use full width on mobile */
+    margin: 0 auto; /* Center align the cards */
+  }
+
+  .card-title-custom {
+    font-size: 1.2em; /* Adjust font size for mobile readability */
+  }
+
+  .card-subtitle-custom {
+    font-size: 1em; /* Adjust font size for mobile readability */
+  }
+
+  .card-text-custom {
+    font-size: 1rem; /* Adjust font size for mobile readability */
+    width: 100%;
+  }
+
+  .read-more {
+    background-color: #E5E5E5 !important;
+    padding-left: 10px !important;
+  }
+}
+
+
+

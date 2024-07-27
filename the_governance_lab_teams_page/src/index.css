@@ -113,7 +113,6 @@ button:focus-visible {
   max-width: 80%;
   width: 100%;
   padding: 0;
-  
 }
 
 .material-icons {
@@ -139,4 +138,12 @@ button:focus-visible {
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+
+@media (max-width: 768px) {
+  .team-member-container {
+    max-width: 90%;
+    width: 90%;
+  }
 }
