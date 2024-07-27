@@ -72,6 +72,31 @@ header, footer {
   font-size: 1.14rem;
   width: 92.5%;
 }
+/* 
+.read-more {
+  align-self: flex-start;
+  text-decoration: none !important;
+  color: #573080 !important;
+  padding: 0.5em 1em !important;
+  font-family: 'proxima-nova-bold';
+  font-size: 0.9em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 8em; 
+  border: none;
+  background: none;
+  line-height: 1;
+}
+
+.read-more:hover, .read-more:focus {
+  color: #573080 !important;
+  text-decoration: none !important;
+}
+
+.read-more .material-icons {
+  font-size: 1.2em;
+} */
 
 .read-more {
   align-self: flex-start;
@@ -80,4 +105,18 @@ header, footer {
   padding: 0px !important;
   font-family: 'proxima-nova-bold';
   font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  gap: 5px;  /* This adds space between the text and icon */
+}
+
+.read-more:hover, .read-more:focus {
+  color: #573080 !important;
+  text-decoration: none !important;
+}
+
+.read-more .material-icons {
+  font-size: 1.5em;  /* Adjust this value to match the size of your text */
+  vertical-align: middle;
+  padding-left: 12px;
 }

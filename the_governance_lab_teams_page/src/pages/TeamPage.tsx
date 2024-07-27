@@ -90,6 +90,7 @@ const TeamPage: React.FC = () => {
                     {member.bio !== null && member.bio !== "NULL" && (
                       <Button className='read-more' variant="link" onClick={() => handleToggle(member.name)}>
                         {isExpanded ? 'LESS' : 'MORE'}
+                        <i className='material-icons'>{isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</i>
                       </Button>
                     )}
                     {/* {member.projects && member.projects.length > 0 && (
