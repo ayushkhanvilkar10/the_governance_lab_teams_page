@@ -121,9 +121,6 @@ const TeamPage: React.FC = () => {
             );
           })}
         </main>
-        <footer>
-          <p>© 2024 Governance Lab</p>
-        </footer>
       </Container>
     </>
   );

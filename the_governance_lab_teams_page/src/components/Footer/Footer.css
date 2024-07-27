@@ -1,0 +1,16 @@
+/* General styles for the footer */
+.footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  /* Mobile styles for the footer */
+  @media (max-width: 768px) {
+    .footer {
+      padding: 15px 0;
+      font-size: 0.9em; /* Slightly smaller font size for mobile */
+    }
+  }
+  
