@@ -12,10 +12,45 @@
   position: relative;
 }
 
+.icons-search-bar-container {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
 .icons-container {
   display: flex;
   gap: 15px;
-  margin-left: 20px;
+  margin-right: 15px;
+}
+
+.search-form {
+  display: flex;
+}
+
+.search-input {
+  border-radius: 0 !important; /* Force boxy corners */
+  border-right: none;
+  background-color: #64458D !important ; /* Background color for the input */
+  border: none !important; /* Remove the border */
+}
+
+.search-button {
+  border-radius: 0 !important; /* Force boxy corners */
+  border-left: none;
+  background-color: #75599A !important; /* Background color for the button */
+  color: #D3CBDF !important; /* Text color for better contrast */
+  font-weight: bold;
+  border: none !important; /* Remove the border */
+  font-family: 'proxima-nova-bold' !important;
+
+}
+
+/* Override Bootstrap's focus styles to maintain boxy corners */
+.search-input:focus,
+.search-button:focus {
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .logo-container {
@@ -45,6 +80,21 @@
   .navbar-container {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .icons-search-bar-container {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .icons-container {
+    margin-bottom: 10px;
+  }
+
+  .search-form {
+    width: 100%;
   }
 
   .logo-container {
