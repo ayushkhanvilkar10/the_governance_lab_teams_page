@@ -136,6 +136,14 @@ header, footer {
   padding-left: 12px;
 }
 
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* or another appropriate value */
+}
+
+
 @media (max-width: 768px) {
   .team-member-picture {
     width: 55%; /* Adjust width to fit the mobile screen */

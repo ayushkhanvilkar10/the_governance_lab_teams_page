@@ -3,7 +3,7 @@ import { fetchTeamMembers } from '../services/api';
 import { TeamMember } from '../types';
 import { teamMembersArray } from '../data/teamMembersArray';
 import parse from 'html-react-parser';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import { Card, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
 import './TeamPage.css';
 
 const TeamPage: React.FC = () => {
@@ -28,7 +28,14 @@ const TeamPage: React.FC = () => {
     getTeamMembers();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return (
+    <div className="spinner-container">
+      <Spinner animation="border" role="status">
+        <span className="sr-only"></span>
+      </Spinner>
+    </div>
+  );
+    
   if (error) return <div>{error}</div>;
 
   const handleToggle = (name: string, url: string) => {
