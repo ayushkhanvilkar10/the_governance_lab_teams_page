@@ -67,7 +67,7 @@ const TeamPage: React.FC = () => {
       name: member.name,
       title: member.title,
       bio_short: member.bio_short,
-      bio: member.bio ? preprocessBio(member.bio) : '', // Preprocess bio to replace sequences
+      bio: member.bio && member.bio !== null && member.bio !== "NULL" ? preprocessBio(member.bio) : null, // Preprocess bio to replace sequences
       picture_blog2020: member.picture_blog2020,
       picture: member.picture,
       projects: member.projects,
@@ -83,7 +83,7 @@ const TeamPage: React.FC = () => {
             const pictureUrl = member.picture_blog2020 || (member.picture ? `https://content.thegovlab.com/assets/${member.picture.id}` : '');
             const isExpanded = expandedMembers[member.name];
             const areProjectsVisible = projectsVisible[member.name];
-            const showReadMoreButton = member.bio !== member.bio_short;
+            const showReadMoreButton = member.bio !== member.bio_short && member.bio !== null && member.bio !== "NULL";
 
             return (
               <React.Fragment key={index}>
@@ -105,7 +105,6 @@ const TeamPage: React.FC = () => {
                         </Card.Subtitle>}
                         {member.bio_short && !isExpanded && <Card.Text className='card-text-custom'>{parse(member.bio_short)}</Card.Text>}
                         {member.bio && isExpanded && <Card.Text className='card-text-custom'>{parse(member.bio)}</Card.Text>}
-                        {member.bio !== null && member.bio !== "NULL" && (
                           <div className='button-container'>
                             {showReadMoreButton && (
                               <Button className='read-more' variant="link" onClick={() => handleToggle(member.name, member.url)}>
@@ -120,7 +119,6 @@ const TeamPage: React.FC = () => {
                               </Button>
                             )}
                           </div>
-                        )}
                         {areProjectsVisible && member.projects && (
                           <ul className="projects-list">
                             {member.projects.map((project, projectIndex) => (
