@@ -14,13 +14,24 @@ export interface Picture {
     id: string;
 }
 
-export interface TeamMember {
+// Define common properties separately
+interface CommonMemberProps {
     name: string;
-    title?: string;
-    bio_short?: string;
+    title: string;
+    bio_short: string;
     bio?: string;
     picture_blog2020?: string;
     picture?: Picture;
     projects?: Project[];
+  }
+  
+  // TeamMember includes common properties and additional any-key properties
+  export interface TeamMember extends CommonMemberProps {
     [key: string]: any;
-}
+  }
+  
+  // SelectedTeamMember includes common properties and the url property
+  export interface SelectedTeamMember extends CommonMemberProps {
+    url: string;
+  }
+  

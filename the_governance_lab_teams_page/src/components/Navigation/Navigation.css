@@ -10,6 +10,11 @@
   font-size: 24px;
 }
 
+.govlab-logo {
+  max-width: 140px;
+  display: block;
+  margin: 0 auto;
+}
 
 /* Styles for smaller screens (mobile and tablets) */
 @media (max-width: 768px) {
