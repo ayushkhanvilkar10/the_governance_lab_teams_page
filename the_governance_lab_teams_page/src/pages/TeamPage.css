@@ -109,12 +109,12 @@ header, footer {
   margin-top: 10px; /* Adjust top margin if needed */
 }
 
-.read-more {
+.team-card-custom-button {
   align-self: flex-start;
   text-decoration: none !important;
   color: #573080 !important;
   padding: 0px !important;
-  font-family: 'proxima-nova-bold';
+  font-family: 'proxima-nova';
   font-size: 0.9em;
   display: flex;
   align-items: center;
@@ -123,14 +123,14 @@ header, footer {
   transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out !important; /* Smooth transition */
 }
 
-.read-more:hover {
+.team-card-custom-button:hover {
   background-color: #CCCCCC !important;
   border-radius: 0 !important;  /* Boxy corners */
   padding-left: 10px !important;
 }
 
 
-.read-more .material-icons {
+.team-card-custom-button .material-icons {
   font-size: 1.5em;  /* Adjust this value to match the size of your text */
   vertical-align: middle;
   padding-left: 12px;
@@ -170,7 +170,7 @@ header, footer {
     width: 100%;
   }
 
-  .read-more {
+  .team-card-custom-button {
     background-color: #E5E5E5 !important;
     padding-left: 10px !important;
   }

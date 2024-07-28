@@ -31,14 +31,14 @@ const TeamPage: React.FC = () => {
   if (loading) return (
     <div className="spinner-container">
       <Spinner animation="border" role="status">
-        <span className="sr-only">Loading...</span>
+        <span className="sr-only"></span>
       </Spinner>
     </div>
   );
     
   if (error) return <div>{error}</div>;
 
-  const handleToggle = (name: string, url: string) => {
+  const handleMoreToggle = (name: string, url: string) => {
     if (url) {
       window.location.href = url;
     } else {
@@ -107,13 +107,13 @@ const TeamPage: React.FC = () => {
                         {member.bio && isExpanded && <Card.Text className='card-text-custom'>{parse(member.bio)}</Card.Text>}
                           <div className='button-container'>
                             {showReadMoreButton && (
-                              <Button className='read-more' variant="link" onClick={() => handleToggle(member.name, member.url)}>
+                              <Button className='team-card-custom-button' variant="link" onClick={() => handleMoreToggle(member.name, member.url)}>
                                 {isExpanded ? 'LESS' : 'MORE'}
                                 <i className='material-icons'>{isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</i>
                               </Button>
                             )}
                             {member.projects && member.projects.length > 0 && (
-                              <Button className='read-more' variant="link" onClick={() => handleProjectsToggle(member.name)}>
+                              <Button className='team-card-custom-button' variant="link" onClick={() => handleProjectsToggle(member.name)}>
                                 PROJECTS
                                 <i className='material-icons'>{areProjectsVisible ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</i>
                               </Button>
