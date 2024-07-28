@@ -1,8 +1,8 @@
 .custom-navbar {
-  height: 75px;
+  height: 80px;
   background-color: #523080;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .navbar-container {
@@ -65,8 +65,9 @@
 }
 
 .material-icons {
-  color: white;
+  color: #64458D; /* Updated icon color */
   cursor: pointer;
+  padding: 10px;
 }
 
 /* Styles for smaller screens (mobile and tablets) */
