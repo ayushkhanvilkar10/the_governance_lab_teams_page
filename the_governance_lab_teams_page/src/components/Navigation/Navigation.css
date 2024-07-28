@@ -5,26 +5,51 @@
   margin-bottom: 30px;
 }
 
-.custom-navbar .navbar-brand {
-  color: white;
-  font-size: 24px;
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.icons-container {
+  display: flex;
+  gap: 15px;
+  margin-left: 20px;
+}
+
+.logo-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .govlab-logo {
   max-width: 140px;
   display: block;
-  margin: 0 auto;
+}
+
+.material-icons {
+  color: white;
+  cursor: pointer;
 }
 
 /* Styles for smaller screens (mobile and tablets) */
 @media (max-width: 768px) {
   .custom-navbar {
-    height: auto; /* Allow height to adjust automatically */
-    padding: 10px; /* Add padding for smaller screens */
-    margin-bottom: 20px; /* Adjust margin as needed */
+    height: auto;
+    padding: 10px;
+    margin-bottom: 20px;
   }
 
-  .custom-navbar .navbar-brand {
-    font-size: 20px; /* Adjust font size for better visibility */
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo-container {
+    position: static;
+    transform: none;
+    margin-top: 10px;
   }
 }
