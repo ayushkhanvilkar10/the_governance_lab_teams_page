@@ -31,11 +31,15 @@ const TeamPage: React.FC = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
-  const handleToggle = (name: string) => {
-    setExpandedMembers(prev => ({
-      ...prev,
-      [name]: !prev[name]
-    }));
+  const handleToggle = (name: string, url: string) => {
+    if (url) {
+      window.location.href = url;
+    } else {
+      setExpandedMembers(prev => ({
+        ...prev,
+        [name]: !prev[name]
+      }));
+    }
   };
 
   const handleProjectsToggle = (name: string) => {
@@ -45,8 +49,8 @@ const TeamPage: React.FC = () => {
     }));
   };
 
-  const sortedTeamMembers = teamMembersArray.map(name => {
-    const member = teamMembers.find(member => member.name === name && member.bio_short);
+  const sortedTeamMembers = teamMembersArray.map(selected_member => {
+    const member = teamMembers.find(member => member.name === selected_member.name && member.bio_short);
     return member ? {
       name: member.name,
       title: member.title,
@@ -54,7 +58,8 @@ const TeamPage: React.FC = () => {
       bio: member.bio,
       picture_blog2020: member.picture_blog2020,
       picture: member.picture,
-      projects: member.projects
+      projects: member.projects,
+      url: selected_member.url,
     } : null;
   }).filter(member => member !== null);
 
@@ -89,7 +94,7 @@ const TeamPage: React.FC = () => {
                         {member.bio && isExpanded && <Card.Text className='card-text-custom'>{parse(member.bio)}</Card.Text>}
                         {member.bio !== null && member.bio !== "NULL" && (
                           <div className='button-container'>
-                            <Button className='read-more' variant="link" onClick={() => handleToggle(member.name)}>
+                            <Button className='read-more' variant="link" onClick={() => handleToggle(member.name,member.url)}>
                               {isExpanded ? 'LESS' : 'MORE'}
                               <i className='material-icons'>{isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</i>
                             </Button>
