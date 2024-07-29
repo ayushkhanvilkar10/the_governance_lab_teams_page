@@ -83,12 +83,13 @@
   border: none !important;
   font-family: 'proxima-nova-bold' !important;
   margin-right: 15px;
+  padding: 5px !important;
 }
 
 .links-container a {
   color: #64458D !important;
   font-size: 20px;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .links-container a:hover {
