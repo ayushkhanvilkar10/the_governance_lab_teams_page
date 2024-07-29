@@ -21,9 +21,16 @@ const TeamPage: React.FC = () => {
         setTeamMembers(data);
         setLoading(false);
       } catch (error) {
-        setError('Error fetching team members');
+        console.error(error);
+
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError('An unknown error occurred.');
+        }
+        
         setLoading(false);
-      }
+      } 
     };
 
     getTeamMembers();

@@ -9,6 +9,6 @@ export const fetchTeamMembers = async (): Promise<TeamMember[]> => {
         return response.data.data;
     } catch (error) {
         console.error('Error fetching team members:', error);
-        throw error;
+        throw new Error('Failed to fetch team members. Please try again later.');
     }
 };
