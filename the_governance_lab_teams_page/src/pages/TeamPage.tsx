@@ -95,7 +95,7 @@ const TeamPage: React.FC = () => {
           {sortedSelectedTeamMembers.map((member, index) => {
             const isExpanded = expandedMembers[member.name];
             const areProjectsVisible = projectsVisible[member.name];
-            const showReadMoreButton = member.bio !== member.bio_short && member.bio !== null && member.bio !== "NULL"; // Hide MORE button if bio property is not found
+            const showReadMoreButton = (member.bio !== member.bio_short && member.bio !== null && member.bio !== "NULL") || member.url.length > 1; // Hide MORE button if bio property is not found
 
             return (
               <TeamCard
