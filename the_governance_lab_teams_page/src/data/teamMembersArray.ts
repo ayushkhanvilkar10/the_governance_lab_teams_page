@@ -1,4 +1,4 @@
-export const teamMembersArray = [
+export const selectedTeamMembersArray = [
   {name: "Beth Simone Noveck", url: "https://thegovlab.org/beth-simone-noveck.html"},
   {name: "Stefaan Verhulst", url: "https://thegovlab.org/stefaan-verhulst.html"},
   {name: "Adrienne Schmoeker", url: ""},

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchTeamMembers } from '../services/api';
 import { TeamMember, SelectedTeamMember } from '../types';
-import { teamMembersArray } from '../data/teamMembersArray';
+import { selectedTeamMembersArray } from '../data/teamMembersArray';
 import { Container, Spinner } from 'react-bootstrap';
 import './TeamPage.css';
 import TeamCard from '../components/TeamCard/TeamCard';
@@ -29,7 +29,7 @@ const TeamPage: React.FC = () => {
     getTeamMembers();
   }, []);
 
-  // Spinner for loading state
+  // Spinner for loading state that takes up entire screen and avoids footer from being shown at the top
   if (loading) return (
     <div className="spinner-container">
       <Spinner animation="border" role="status">
@@ -52,7 +52,7 @@ const TeamPage: React.FC = () => {
     }
   };
 
-  // Handling click on the Projects button
+  // Handling click on the PROJECTS button
   const handleProjectsToggle = (name: string) => {
     setProjectsVisible(prev => ({
       ...prev,
@@ -60,8 +60,7 @@ const TeamPage: React.FC = () => {
     }));
   };
 
-
-  // Handling bios that are not parsed correctly
+  // Handling bios to ensure they are parsed correctly
   const preprocessBio = (bio: string): string => {
     return bio.replace(/\n<\/br><\/br>/g, '<br></br>');
   };
@@ -69,9 +68,11 @@ const TeamPage: React.FC = () => {
   // Creating a map for quick lookup
   const teamMembersMap = new Map(teamMembers.map(member => [member.name, member]));
 
-  // Building a sorted list of selected team members
   const sortedSelectedTeamMembers: SelectedTeamMember[] = [];
-  teamMembersArray.forEach(selected_member => {
+
+  // Building a sorted list of selected team members
+  // Preprocessing bio so that it can be parsed properly
+  selectedTeamMembersArray.forEach(selected_member => {
     const member = teamMembersMap.get(selected_member.name);
     if (member && member.bio_short) {
       sortedSelectedTeamMembers.push({
@@ -94,12 +95,12 @@ const TeamPage: React.FC = () => {
           {sortedSelectedTeamMembers.map((member, index) => {
             const isExpanded = expandedMembers[member.name];
             const areProjectsVisible = projectsVisible[member.name];
-            const showReadMoreButton = member.bio !== member.bio_short && member.bio !== null && member.bio !== "NULL";
+            const showReadMoreButton = member.bio !== member.bio_short && member.bio !== null && member.bio !== "NULL"; // Hide MORE button if bio property is not found
 
             return (
               <TeamCard
-              key={index}
-              member={{ ...member }}
+              index={index}
+              member={member}
               isExpanded={isExpanded}
               areProjectsVisible={areProjectsVisible}
               showReadMoreButton={showReadMoreButton}

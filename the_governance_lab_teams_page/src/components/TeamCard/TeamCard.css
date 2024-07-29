@@ -148,10 +148,14 @@
   
   
   @media (max-width: 768px) {
+    .team-member-body{
+      padding-left: 0px !important;
+    }
+
     .team-member-picture {
-      width: 55%; /* Adjust width to fit the mobile screen */
-      padding-top: 55%; /* Maintain aspect ratio; adjust if needed */
-      margin: 0 auto; /* Center align the picture horizontally */
+      width: 50%; /* Adjust width to fit the mobile screen */
+      padding-top: 50%; /* Maintain aspect ratio; adjust if needed */
+      margin: 40px auto; /* Center align the picture horizontally */
       display: block; /* Ensure it behaves as a block element for centering */  
     }
   
@@ -169,7 +173,7 @@
     }
   
     .card-text-custom {
-      font-size: 1rem; /* Adjust font size for mobile readability */
+      font-size: 1.15rem; /* Adjust font size for mobile readability */
       width: 100%;
     }
   

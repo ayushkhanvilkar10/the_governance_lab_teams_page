@@ -27,6 +27,15 @@ const Navigation: React.FC = () => {
             <img src={logo} alt="The GovLab Logo" className="govlab-logo" />
           </a>
         </Navbar.Brand>
+        <div className="links-container">
+          <Button variant="outline-light" className="our-sites-button">OUR SITES</Button>
+          <a href="https://twitter.com/TheGovLab" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.youtube.com/user/TheGovLab" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-youtube"></i>
+          </a>
+        </div>
       </Container>
     </Navbar>
   );

@@ -5,7 +5,7 @@ import { Card, Button, Row, Col } from 'react-bootstrap';
 import './TeamCard.css';
 
 interface TeamCardProps {
-    key:number;
+    index:number;
     member: SelectedTeamMember;
     isExpanded: boolean;
     areProjectsVisible: boolean;
@@ -16,7 +16,7 @@ interface TeamCardProps {
 
 const TeamCard: React.FC<TeamCardProps> = (
     {
-        key,
+        index,
         member,
         isExpanded,
         areProjectsVisible,
@@ -26,10 +26,12 @@ const TeamCard: React.FC<TeamCardProps> = (
       }
 
 ) => {
+
+    //Handing fetching of the picture
     const pictureUrl = member.picture_blog2020 || (member.picture ? `https://content.thegovlab.com/assets/${member.picture.id}` : '');
 
   return (
-              <React.Fragment key={key}>
+              <React.Fragment key={index}>
                 <Card className="mb-3 custom-card">
                   <Row noGutters>
                     <Col xs={12} md={3}>

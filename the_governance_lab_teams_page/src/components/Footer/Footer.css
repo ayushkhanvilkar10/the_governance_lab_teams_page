@@ -9,9 +9,9 @@
 
 /* Styles for the footer image */
 .footer-image {
-  margin-top: 100px;
-  max-width: 1000px; /* Increase the size as needed */
-  margin-bottom: 10px; /* Space between the image and the text */
+  margin-top: 15px;
+  max-width: 70%; /* Adjust the size for desktop version */
+  margin-bottom: 15px;
 }
 
 /* Mobile styles for the footer */
@@ -22,6 +22,8 @@
   }
 
   .footer-image {
-    max-width: 150px; /* Adjust the size for smaller screens */
+    margin-top: 15px;
+    max-width: 80%; /* Adjust the size for smaller screens */
+    margin-bottom: 15px;
   }
 }

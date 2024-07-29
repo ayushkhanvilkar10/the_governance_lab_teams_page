@@ -70,37 +70,86 @@
   padding: 10px;
 }
 
-/* Styles for smaller screens (mobile and tablets) */
-@media (max-width: 768px) {
+
+/* Add these styles to your existing Navigation.css file */
+
+.links-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.our-sites-button {
+  border-radius: 0 !important;
+  background-color: #75599A !important;
+  color: #D3CBDF !important;
+  font-weight: bold;
+  border: none !important;
+  font-family: 'proxima-nova-bold' !important;
+  margin-right: 15px;
+}
+
+.links-container a {
+  color: #D3CBDF;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.links-container a:hover {
+  color: #ffffff;
+}
+
+/* Add these styles to your existing Navigation.css file */
+
+/* ... (keep all the previous styles) ... */
+
+/* Media query for screens between 768px and 1200px */
+@media (min-width: 769px) and (max-width: 1200px) {
   .custom-navbar {
     height: auto;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 10px 0;
   }
 
   .navbar-container {
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
   }
 
-  .icons-search-bar-container {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 0;
-    width: 100%;
-  }
-
-  .icons-container {
-    margin-bottom: 10px;
-  }
-
-  .search-form {
-    width: 100%;
+  .icons-search-bar-container,
+  .links-container {
+    display: none;
   }
 
   .logo-container {
     position: static;
     transform: none;
-    margin-top: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .custom-navbar {
+    height: auto;
+    padding: 10px 0;
+    margin-bottom: 0px;
+  }
+
+  .navbar-container {
+    justify-content: center;
+  }
+
+  .icons-search-bar-container,
+  .links-container {
+    display: none;
+  }
+
+  .logo-container {
+    position: static;
+    transform: none;
+    width: 80%;
+    text-align: center;
+  }
+
+  .govlab-logo {
+    max-width: 140px;
+    margin: 0 auto;
+    display: block;
   }
 }
