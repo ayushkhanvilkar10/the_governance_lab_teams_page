@@ -29,24 +29,23 @@
 }
 
 .search-input {
-  border-radius: 0 !important; /* Force boxy corners */
+  border-radius: 0 !important; /* Boxy corners */
   border-right: none;
-  background-color: #64458D !important ; /* Background color for the input */
-  border: none !important; /* Remove the border */
+  background-color: #64458D !important ; 
+  border: none !important; /* No border */
 }
 
 .search-button {
-  border-radius: 0 !important; /* Force boxy corners */
+  border-radius: 0 !important; /* Boxy corners */
   border-left: none;
-  background-color: #75599A !important; /* Background color for the button */
-  color: #D3CBDF !important; /* Text color for better contrast */
+  background-color: #75599A !important; 
+  color: #D3CBDF !important; 
   font-weight: bold;
-  border: none !important; /* Remove the border */
+  border: none !important; /* No border */
   font-family: 'proxima-nova-bold' !important;
 
 }
 
-/* Override Bootstrap's focus styles to maintain boxy corners */
 .search-input:focus,
 .search-button:focus {
   box-shadow: none !important;
@@ -65,13 +64,10 @@
 }
 
 .material-icons {
-  color: #64458D; /* Updated icon color */
+  color: #64458D; 
   cursor: pointer;
   padding: 10px;
 }
-
-
-/* Add these styles to your existing Navigation.css file */
 
 .links-container {
   display: flex;
@@ -90,7 +86,7 @@
 }
 
 .links-container a {
-  color: #D3CBDF;
+  color: #64458D !important;
   font-size: 20px;
   margin-left: 10px;
 }
@@ -99,9 +95,7 @@
   color: #ffffff;
 }
 
-/* Add these styles to your existing Navigation.css file */
 
-/* ... (keep all the previous styles) ... */
 
 /* Media query for screens between 768px and 1200px */
 @media (min-width: 769px) and (max-width: 1200px) {
@@ -124,6 +118,8 @@
     transform: none;
   }
 }
+
+/* Media query for screens under 768px */
 @media (max-width: 768px) {
   .custom-navbar {
     height: auto;

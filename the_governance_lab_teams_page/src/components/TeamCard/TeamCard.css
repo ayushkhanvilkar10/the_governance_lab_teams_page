@@ -15,7 +15,7 @@
     width: 99vw;
     margin: 20px 0;
     margin-bottom: 0px;
-    border: 1px solid #E5E5E5;  /* This controls the divider's thickness and color */
+    border: 1px solid #E5E5E5;  
     position: relative;
     left: 50%;
     right: 50%;
@@ -40,30 +40,30 @@
   .projects-list {
     list-style-type: none;
     padding-left: 0;
-    margin: 20px 0 0 0; /* Add top margin */
+    margin: 20px 0 0 0; 
   }
   
   .projects-list li {
-    border-bottom: 1px solid #E5E5E5; /* Border color and thickness */
-    padding: 10px; /* Space between the text and the border */
-    background-color: #ffffff; /* Default background color */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    border-bottom: 1px solid #E5E5E5; 
+    padding: 10px; 
+    background-color: #ffffff; 
+    transition: background-color 0.3s ease; 
   }
   
   .projects-list li:hover {
-    background-color: #F2F2F2; /* Background color on hover */
+    background-color: #F2F2F2; 
   }
   
   .projects-list a {
-    font-size: 1.2rem; /* Increase font size slightly */
-    color: #523080; /* Set the text color */
-    text-decoration: none; /* Remove underline */
-    display: block; /* Ensure the link takes up the full width of the li */
-    transition: color 0.3s ease; /* Smooth transition for text color */
+    font-size: 1.2rem; 
+    color: #523080; 
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease; 
   }
   
   .projects-list a:hover {
-    color: #523080; /* Maintain the color on hover */
+    color: #523080; 
   }
   
   .team-member-body {
@@ -102,13 +102,13 @@
   }
   
   .card-text-custom a:hover {
-    color: #523080;  /* Slightly darker shade for hover effect */
+    color: #523080;  
   }
   
   .button-container {
     display: flex;
-    gap: 10px; /* Space between buttons */
-    margin-top: 10px; /* Adjust top margin if needed */
+    gap: 10px; 
+    margin-top: 10px; 
   }
   
   .team-card-custom-button {
@@ -120,20 +120,20 @@
     font-size: 0.9em;
     display: flex;
     align-items: center;
-    gap: 5px;  /* This adds space between the text and icon */
-    border-radius: 0 !important;  /* Boxy corners */
-    transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out !important; /* Smooth transition */
+    gap: 5px; 
+    border-radius: 0 !important;  
+    transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out !important; 
   }
   
   .team-card-custom-button:hover {
     background-color: #CCCCCC !important;
-    border-radius: 0 !important;  /* Boxy corners */
+    border-radius: 0 !important;  
     padding-left: 10px !important;
   }
   
   
   .team-card-custom-button .material-icons {
-    font-size: 1.5em;  /* Adjust this value to match the size of your text */
+    font-size: 1.5em;  
     vertical-align: middle;
     padding-left: 12px;
     color: #523080;
@@ -143,7 +143,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* or another appropriate value */
+    height: 100vh; 
   }
   
   
@@ -153,27 +153,27 @@
     }
 
     .team-member-picture {
-      width: 50%; /* Adjust width to fit the mobile screen */
-      padding-top: 50%; /* Maintain aspect ratio; adjust if needed */
-      margin: 40px auto; /* Center align the picture horizontally */
-      display: block; /* Ensure it behaves as a block element for centering */  
+      width: 50%; 
+      padding-top: 50%; 
+      margin: 40px auto; 
+      display: block; 
     }
   
     .custom-card {
-      width: 100%; /* Ensure cards use full width on mobile */
-      margin: 0 auto; /* Center align the cards */
+      width: 100%;
+      margin: 0 auto; 
     }
   
     .card-title-custom {
-      font-size: 1.2em; /* Adjust font size for mobile readability */
+      font-size: 1.2em; 
     }
   
     .card-subtitle-custom {
-      font-size: 1em; /* Adjust font size for mobile readability */
+      font-size: 1em; 
     }
   
     .card-text-custom {
-      font-size: 1.15rem; /* Adjust font size for mobile readability */
+      font-size: 1.15rem; 
       width: 100%;
     }
   

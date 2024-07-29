@@ -7,7 +7,7 @@ export interface ProjectID {
 export interface Project {
     id: number;
     team_id: string;
-    projects_id: ProjectID; // An object with different project related properties
+    projects_id: ProjectID; // An object with all the project related properties
 }
 
 export interface Picture {
@@ -25,13 +25,13 @@ interface CommonMemberProps {
     projects?: Project[];
   }
   
-  // TeamMember includes common properties of a member and any-key properties for additional properties that API might return
+  // TeamMember interface represents Teammember properties returned by the API
   export interface TeamMember extends CommonMemberProps {
     [key: string]: any;
   }
   
-  // SelectedTeamMember includes common properties of a member and the url property
+  // SelectedTeamMember interface represents Teammember properties to be displayed on the website
   export interface SelectedTeamMember extends CommonMemberProps {
-    url: string; // Link to GovLabs bio when on click of MORE button
+    url: string; // Links to GovLabs bio when on click of MORE button
   }
   

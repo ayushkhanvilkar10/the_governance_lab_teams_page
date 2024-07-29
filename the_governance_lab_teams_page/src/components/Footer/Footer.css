@@ -1,29 +1,26 @@
-/* General styles for the footer */
 .footer {
   background-color: #333333;
   color: white;
   text-align: center;
-  padding: 20px 0; /* Add padding to the top and bottom */
+  padding: 20px 0; 
   position: relative;
 }
 
-/* Styles for the footer image */
 .footer-image {
   margin-top: 15px;
-  max-width: 70%; /* Adjust the size for desktop version */
+  max-width: 70%; 
   margin-bottom: 15px;
 }
 
-/* Mobile styles for the footer */
 @media (max-width: 768px) {
   .footer {
     padding: 15px 0;
-    font-size: 0.9em; /* Slightly smaller font size for mobile */
+    font-size: 0.9em; 
   }
 
   .footer-image {
     margin-top: 15px;
-    max-width: 80%; /* Adjust the size for smaller screens */
+    max-width: 80%;
     margin-bottom: 15px;
   }
 }
